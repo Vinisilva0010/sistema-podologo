@@ -1,4 +1,4 @@
-// Final code for src/components/public/DoctorSection.tsx
+// src/components/public/DoctorSection.tsx
 "use client";
 import Image from "next/image";
 import { Star, ShieldCheck, Award } from "lucide-react";
@@ -26,12 +26,12 @@ export function DoctorSection() {
           </h2>
         </div>
 
-        {/* O BENTO BOX (Grid CSS Puro, 1 col mobile, 3 col/2 rows PC) */}
+        {/* O BENTO BOX */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 md:gap-8 auto-rows-fr">
           
-          {/* Bloco 1: A Copy Matadora (Ocupa 2 colunas no PC) */}
-          <div className="md:col-span-2 bg-white border-4 border-black p-8 md:p-10 shadow-brutal flex flex-col justify-center group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
-            <div className="w-16 h-16 bg-purple-300 border-4 border-black flex items-center justify-center mb-6 shadow-brutal-sm rotate-3 group-hover:rotate-12 transition-transform">
+          {/* Bloco 1: A Copy Matadora */}
+          <div className="md:col-span-2 bg-white border-4 border-black p-8 md:p-10 shadow-[6px_6px_0px_0px_#0f0f0f] md:shadow-brutal flex flex-col justify-center group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
+            <div className="w-16 h-16 bg-purple-300 border-4 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#0f0f0f] rotate-3 group-hover:rotate-12 transition-transform">
               <Star className="w-8 h-8 text-black" strokeWidth={2.5} />
             </div>
             <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 text-black">
@@ -42,13 +42,13 @@ export function DoctorSection() {
             </p>
           </div>
 
-          {/* Bloco 2: A Foto em Ação (Ocupa 2 linhas no PC, min-h no mobile) */}
-          <div className="md:row-span-2 relative min-h-[400px] md:min-h-0 border-4 border-black bg-purple-900 shadow-brutal overflow-hidden group">
+          {/* Bloco 2: A Foto em Ação */}
+          <div className="md:row-span-2 relative min-h-[400px] border-4 border-black bg-purple-900 shadow-[6px_6px_0px_0px_#0f0f0f] md:shadow-brutal overflow-hidden group">
             {/* Overlay amarelo brutalista */}
             <div className="absolute inset-0 bg-yellow-400/20 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500"></div>
             
             <Image 
-              src="/dra-acao.png" // A foto que você vai gerar
+              src="/dra-acao.png" 
               alt="Dra. realizando procedimento"
               fill
               className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05] group-hover:scale-100"
@@ -60,48 +60,25 @@ export function DoctorSection() {
             </div>
           </div>
 
-          {/* Bloco 3: Números de Autoridade (Totalmente diferente no mobile, original no PC) */}
-          <div className="md:col-span-1 bg-yellow-400 border-4 border-black shadow-brutal flex flex-col items-center md:items-start justify-center text-center md:text-left transition-all duration-300 group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f]">
-            {/* MÓVEL-APENAS (extremamente compacto, uma barra de status) */}
-            <div className="block md:hidden w-full p-2 flex flex-row items-center justify-between gap-1">
-              <Award className="w-5 h-5 text-black" strokeWidth={3} />
-              <span className="text-xl font-black text-black tracking-tighter">
-                +5k <span className="text-xs font-bold uppercase tracking-widest text-gray-900">PÉS RECUPERADOS</span>
-              </span>
-            </div>
-
-            {/* PC-APENAS (o design original) */}
-            <div className="hidden md:flex flex-col items-start justify-center w-full p-8 md:p-10 text-left">
-              <Award className="w-12 h-12 text-black mb-4" strokeWidth={2.5} />
-              <span className="text-6xl font-black text-black tracking-tighter mb-2">
-                +5k
-              </span>
-              <span className="font-bold uppercase tracking-widest text-sm text-black border-t-4 border-black pt-2 w-full">
-                PÉS RECUPERADOS
-              </span>
-            </div>
+          {/* Bloco 3: Números de Autoridade (HIDDEN NO MOBILE) */}
+          <div className="hidden md:flex md:col-span-1 bg-yellow-400 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f]">
+            <Award className="w-12 h-12 text-black mb-4" strokeWidth={2.5} />
+            <span className="text-5xl lg:text-6xl font-black text-black tracking-tighter mb-2">
+              +5k
+            </span>
+            <span className="font-bold uppercase tracking-widest text-sm text-black border-t-4 border-black pt-2 w-full">
+              Pés Recuperados
+            </span>
           </div>
 
-          {/* Bloco 4: Selo de Biossegurança (Totalmente diferente no mobile, original no PC) */}
-          <div className="md:col-span-1 bg-purple-500 border-4 border-black shadow-brutal flex flex-col items-center justify-center text-center transition-all duration-300 overflow-hidden relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f]">
-            {/* MÓVEL-APENAS (compacto, barra de status) */}
-            <div className="block md:hidden w-full p-2 flex flex-row items-center justify-between gap-1 relative z-10">
-              <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.5} />
-              <span className="text-xl font-black text-white tracking-tighter leading-none">
-                BIOSSEGURANÇA <span className="text-xs font-bold uppercase tracking-widest text-purple-100">HOSPITALAR</span>
-              </span>
-            </div>
-
-            {/* PC-APENAS (o design original, stacked) */}
-            <div className="hidden md:flex flex-col items-center justify-center w-full p-8 md:p-10 text-center relative z-10">
-              <ShieldCheck className="w-16 h-16 text-white mb-4 flex-shrink-0" strokeWidth={2} />
-              <h4 className="text-2xl font-black uppercase text-white">
-                Biossegurança <br/> Hospitalar
-              </h4>
-            </div>
-
-            {/* Estrela rodando no fundo (Easter Egg visual) - Mantemos para ambos, ajustado */}
-            <div className="absolute -right-4 -bottom-4 md:-right-10 md:-bottom-10 w-24 h-24 md:w-48 md:h-48 bg-purple-400 opacity-50 rotate-45 group-hover:rotate-90 transition-transform duration-700 ease-in-out"></div>
+          {/* Bloco 4: Selo de Biossegurança (HIDDEN NO MOBILE) */}
+          <div className="hidden md:flex md:col-span-1 bg-purple-500 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center overflow-hidden relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
+            <ShieldCheck className="w-16 h-16 text-white mb-4 relative z-10 group-hover:scale-110 transition-transform" strokeWidth={2} />
+            <h4 className="text-xl lg:text-2xl font-black uppercase text-white relative z-10">
+              Biossegurança <br/> Hospitalar
+            </h4>
+            
+            <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-purple-400 opacity-50 rotate-45 group-hover:rotate-90 transition-transform duration-700 ease-in-out"></div>
           </div>
 
         </div>
