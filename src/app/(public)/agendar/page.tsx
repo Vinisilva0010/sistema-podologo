@@ -9,6 +9,8 @@ import { CheckCircle2, ArrowLeft, Info, MessageCircle, CalendarClock, Loader2 } 
 import { cn } from "@/lib/utils";
 import { generateAvailableSlots } from "@/lib/timeUtils";
 import { timeToMinutes, minutesToTime } from "@/lib/timeUtils";
+import { maskPhone } from "@/lib/utils";
+import { createServerAppointment, getAppointmentsByDateServer } from "@/actions/booking";
 // --- MOCK DE DADOS (Até o Firebase do Admin estar pronto) ---
 const mockServices = [
   { id: "1", name: "Unha Encravada", price: 150, durationMin: 45, bufferMin: 15, description: "Alívio imediato e curativo.", active: true },
@@ -150,25 +152,24 @@ function StepSelectService() {
 }
 
 // ==========================================
-// PASSO 2: ESCOLHER DATA E HORA (COM O CÉREBRO ATIVADO)
+// PASSO 2: ESCOLHER DATA E HORA (COMPLETO)
 // ==========================================
 function StepSelectDateTime() {
   const { selectedService, selectDateTime, setStep } = useBookingStore();
   
-  // Vamos gerar os próximos 4 dias úteis dinamicamente pro botão
   const [availableDates, setAvailableDates] = useState<string[]>([]);
   const [date, setDate] = useState<string | null>(null);
   const [slots, setSlots] = useState<string[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
 
-  // Gera os botões de dias quando o componente monta
+  // 1. O MOTOR QUE GERA OS DIAS NA TELA (Isso aqui devia estar faltando!)
   useEffect(() => {
-    const dates = [];
+    const dates: string[] = [];
     let currentDate = new Date();
     while (dates.length < 4) {
-      // Pula domingo (dia 0) - Lógica de negócio da clínica
-      if (currentDate.getDay() !== 0) {
-        // Formata para "YYYY-MM-DD" para o banco entender fácil
+      // Dia 0 é Domingo. Pula os domingos.
+      if (currentDate.getDay() !== 0) { 
+        // Formata para o banco (YYYY-MM-DD)
         const formatted = currentDate.toISOString().split('T')[0];
         dates.push(formatted);
       }
@@ -177,29 +178,27 @@ function StepSelectDateTime() {
     setAvailableDates(dates);
   }, []);
 
-  // O "Rastreador de Conflitos" - Roda sempre que a pessoa clica num dia
+  // 2. O RASTREADOR DE CONFLITOS (Busca horários ao clicar na data)
   useEffect(() => {
     async function fetchAndCalculateSlots() {
+      // Se não clicou num dia ainda, não faz nada
       if (!date || !selectedService) return;
+      
       setLoadingSlots(true);
 
       try {
-        // 1. Busca no Firebase os agendamentos DESSA DATA específica
-        const q = query(
-          collection(db, "appointments"),
-          where("date", "==", date)
-        );
-        const snapshot = await getDocs(q);
+        console.log("DEBUG FRONT: Buscando horários para o dia", date);
+        const response = await getAppointmentsByDateServer(date);
         
-        const bookedAppointments: any[] = [];
-        snapshot.forEach((doc) => {
-          bookedAppointments.push(doc.data());
-        });
+        let bookedAppointments = [];
+        if (response.success) {
+          bookedAppointments = response.data || [];
+        }
 
-        // 2. Chama o nosso Cérebro Matemático
+        // Passa os dados pro nosso Cérebro Matemático
         const calculatedSlots = generateAvailableSlots(
-          "08:00", // Abre às 8h
-          "18:00", // Fecha às 18h
+          "08:00", // Abertura
+          "18:00", // Fechamento
           selectedService.durationMin,
           selectedService.bufferMin,
           bookedAppointments
@@ -207,14 +206,14 @@ function StepSelectDateTime() {
 
         setSlots(calculatedSlots);
       } catch (error) {
-        console.error("Erro ao calcular horários:", error);
+        console.error("Erro crítico na tela de agendamento:", error);
       } finally {
         setLoadingSlots(false);
       }
     }
 
     fetchAndCalculateSlots();
-  }, [date, selectedService]); // Recalcula se mudar a data ou o serviço
+  }, [date, selectedService]);
 
   if (!selectedService) return null;
 
@@ -227,10 +226,9 @@ function StepSelectDateTime() {
 
       <h2 className="text-3xl md:text-4xl font-black uppercase mb-6">Qual o melhor dia?</h2>
       
-      {/* Grid de Datas Dinâmicas */}
+      {/* GRID DE DATAS (Onde estava o buraco) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
         {availableDates.map((d) => {
-          // Formata a data pra ficar bonitinha na tela (Ex: 24/10)
           const [year, month, day] = d.split('-');
           const displayDate = `${day}/${month}`;
           
@@ -249,7 +247,7 @@ function StepSelectDateTime() {
         })}
       </div>
 
-      {/* Grid de Horários (O resultado do Cérebro) */}
+      {/* GRID DE HORÁRIOS (Só aparece depois que clica na data) */}
       {date && (
         <div className="animate-in fade-in slide-in-from-top-4 duration-300">
           <h2 className="text-2xl font-black uppercase mb-4 border-t-4 border-black pt-6">Horários Livres</h2>
@@ -278,6 +276,7 @@ function StepSelectDateTime() {
         </div>
       )}
 
+      {/* BOTÃO VOLTAR */}
       <button onClick={() => setStep('SELECT_SERVICE')} className="mt-10 font-bold uppercase text-gray-500 border-b-2 border-gray-500 hover:text-black hover:border-black transition-colors">
         Alterar Serviço
       </button>
@@ -303,33 +302,32 @@ function StepUserInfo() {
     setLoading(true);
 
     try {
-      // 1. O CÁLCULO DE ELITE: Precisamos descobrir que horas a consulta termina.
-      // Transformamos a hora de início em minutos, somamos a duração e a limpeza, e voltamos pra texto.
       const startMins = timeToMinutes(selectedTime);
       const totalSessionMins = selectedService.durationMin + selectedService.bufferMin;
-      const endMins = startMins + totalSessionMins;
-      const calculatedEndTime = minutesToTime(endMins);
+      const calculatedEndTime = minutesToTime(startMins + totalSessionMins);
 
-      // 2. GRAVANDO NO FIREBASE: Montamos o "pacote" de dados e enviamos pro banco
-      await addDoc(collection(db, "appointments"), {
+      // Chamando a SERVER ACTION (O nosso servidor Node.js assume daqui pra frente)
+      const response = await createServerAppointment({
         patientName: name,
         patientPhone: phone,
         notes: notes,
         serviceId: selectedService.id,
         serviceName: selectedService.name,
-        date: selectedDate, // "YYYY-MM-DD"
-        startTime: selectedTime, // Ex: "09:00"
-        endTime: calculatedEndTime, // Ex: "09:45"
-        status: "confirmed", // Já entra como confirmado
-        createdAt: serverTimestamp(), // Pega a hora exata do servidor do Google
+        date: selectedDate,
+        startTime: selectedTime,
+        endTime: calculatedEndTime,
+        status: "confirmed",
       });
 
-      // Se o Firebase deu OK, a gente avança pra tela de Sucesso!
-      setStep('SUCCESS');
+      if (response.success) {
+        setStep('SUCCESS');
+      } else {
+        alert(response.error || "Erro ao salvar agendamento.");
+      }
       
     } catch (error) {
-      console.error("Erro ao salvar agendamento:", error);
-      alert("Putz, deu um erro de conexão. Tente novamente!");
+      console.error("Erro no front-end ao agendar:", error);
+      alert("Falha na comunicação com o servidor.");
     } finally {
       setLoading(false);
     }
@@ -368,9 +366,9 @@ function StepUserInfo() {
           <label className="block font-black uppercase text-sm mb-2">WhatsApp</label>
           <input 
             required 
+            type="tel"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            type="tel" 
+            onChange={(e) => setPhone(maskPhone(e.target.value))} // A mágica acontece aqui
             placeholder="(11) 99999-9999"
             className="w-full border-4 border-black p-4 font-bold outline-none focus:bg-yellow-100 transition-colors shadow-[4px_4px_0px_0px_#000]"
           />

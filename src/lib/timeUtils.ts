@@ -1,12 +1,11 @@
 // src/lib/timeUtils.ts
 
-// Converte "08:30" para 510 (minutos)
 export function timeToMinutes(timeString: string): number {
+  if (!timeString) return 0;
   const [hours, minutes] = timeString.split(":").map(Number);
   return hours * 60 + minutes;
 }
 
-// Converte 510 para "08:30"
 export function minutesToTime(minutes: number): string {
   const h = Math.floor(minutes / 60).toString().padStart(2, "0");
   const m = (minutes % 60).toString().padStart(2, "0");
@@ -14,35 +13,39 @@ export function minutesToTime(minutes: number): string {
 }
 
 interface Appointment {
-  startTime: string; // "09:00"
-  endTime: string;   // "09:45"
+  startTime: string; 
+  endTime: string;   
 }
 
 export function generateAvailableSlots(
-  openTime: string, // "08:00"
-  closeTime: string, // "18:00"
-  serviceDuration: number, // Ex: 45
-  bufferTime: number, // Ex: 15
-  bookedAppointments: Appointment[] // Agendamentos que já existem no banco
+  openTime: string,
+  closeTime: string,
+  serviceDuration: any, // Usando any para tratar entrada suja
+  bufferTime: any,      // Usando any para tratar entrada suja
+  bookedAppointments: Appointment[]
 ): string[] {
   const slots: string[] = [];
+  
+  // GARANTIA DE CTO: Forçando a conversão para número
+  const duration = Number(serviceDuration) || 30;
+  const buffer = Number(bufferTime) || 0;
+  
   const openMins = timeToMinutes(openTime);
   const closeMins = timeToMinutes(closeTime);
-  const totalRequiredMins = serviceDuration + bufferTime;
+  const totalRequiredMins = duration + buffer;
 
-  // A gente testa buracos a cada 30 minutos (Ex: 08:00, 08:30, 09:00)
+  // Intervalo entre os botões (30 min)
   const stepInterval = 30; 
+
+  console.log(`DEBUG CÉREBRO: Tentando gerar slots de ${totalRequiredMins}min entre ${openTime} e ${closeTime}`);
 
   for (let currentMins = openMins; currentMins + totalRequiredMins <= closeMins; currentMins += stepInterval) {
     const slotStart = currentMins;
     const slotEnd = currentMins + totalRequiredMins;
 
-    // A MÁGICA DA COLISÃO: Verifica se esse slot bate de frente com algum agendamento existente
     const hasConflict = bookedAppointments.some((appt) => {
       const apptStart = timeToMinutes(appt.startTime);
       const apptEnd = timeToMinutes(appt.endTime);
-      
-      // Lógica de intersecção de conjuntos (se cruzar, tem conflito)
       return slotStart < apptEnd && slotEnd > apptStart;
     });
 
@@ -51,5 +54,6 @@ export function generateAvailableSlots(
     }
   }
 
+  console.log(`DEBUG CÉREBRO: Gerados ${slots.length} horários livres.`);
   return slots;
 }
