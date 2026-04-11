@@ -1,9 +1,13 @@
-// src/components/public/Hero.tsx
+"use client"; 
 import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 import { BrutalButton } from "../ui/BrutalButton";
-import { TypewriterNote } from "../ui/TypewriterNote"; // O componente que acabamos de criar
+import { TypewriterNote } from "../ui/TypewriterNote";
 
 export function Hero() {
+const router = useRouter();
+
+
   return (
     <>
       <section className="relative w-full min-h-[90vh] flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-purple-800 border-b-[6px] border-black pt-12 pb-24 md:pb-12">
@@ -37,7 +41,12 @@ export function Hero() {
             <div className="bg-black border-4 border-white text-white px-4 py-2 shadow-[4px_4px_0px_0px_#d8b4fe] md:shadow-[6px_6px_0px_0px_#d8b4fe]">
               <h2 className="text-xl md:text-3xl font-bold tracking-wide">Dra. Nome da Podóloga</h2>
             </div>
-
+               <a 
+              href="/meus-agendamentos" 
+              className="inline-block mt-4 bg-brutal-bg text-black font-black uppercase text-sm px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#a855f7] hover:bg-yellow-400 hover:-translate-y-1 transition-all"
+            >
+              Consultar meu Agendamento
+            </a>
             {/* Esse parágrafo longo eu escondi no celular pra não ficar chato de ler */}
             <p className="text-base md:text-xl text-purple-50 max-w-lg font-medium bg-black/50 p-3 md:p-4 border-l-4 border-purple-400 backdrop-blur-sm hidden md:block">
               Tratamento humanizado para unhas encravadas, calos e dores. Recupere o conforto a cada passo sem enrolação e com biossegurança total.
@@ -45,9 +54,14 @@ export function Hero() {
 
             {/* Botão Agendar (SÓ APARECE NO DESKTOP AQUI) */}
             <div className="hidden md:flex flex-wrap gap-4 mt-4 w-full">
-              <BrutalButton size="lg" variant="primary" className="w-full sm:w-auto">
+             <BrutalButton 
+                size="lg" 
+                variant="primary" 
+                className="w-full sm:w-auto"
+                onClick={() => router.push('/agendar')} 
+                >
                 Agendar Avaliação
-              </BrutalButton>
+                </BrutalButton>
             </div>
           </div>
 
@@ -76,9 +90,14 @@ export function Hero() {
 
       {/* 4. O STICKY BUTTON (O segredo da conversão: Fixo no rodapé APENAS no Mobile) */}
       <div className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-white/90 backdrop-blur-md border-t-4 border-black z-50 flex justify-center shadow-[0px_-4px_0px_0px_#000]">
-         <BrutalButton size="lg" variant="primary" className="w-full text-lg">
+        <BrutalButton 
+            size="lg" 
+            variant="primary" 
+            className="w-full text-lg"
+            onClick={() => router.push('/agendar')} 
+            >
             AGENDAR AGORA
-         </BrutalButton>
+            </BrutalButton>
       </div>
     </>
   );
