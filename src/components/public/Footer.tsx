@@ -123,16 +123,28 @@ export function Footer() {
           </div>
 
         </div>
-
-        {/* 3. A Assinatura (Easter Egg Zanvexis) */}
+       
+     
+       {/* 3. A Assinatura (Marketing Zanvexis e Porta dos Fundos no Copyright) */}
         <div className="container mx-auto max-w-7xl mt-16 pt-8 border-t-4 border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-gray-500">
-          <p>© {new Date().getFullYear()} Clínica de Podologia. Todos os direitos reservados.</p>
-          <p className="flex items-center gap-2">
-            Desenvolvido por 
-            <a href="#" className="bg-purple-900 text-white px-2 py-1 border-2 border-purple-500 hover:bg-yellow-400 hover:text-black hover:border-black transition-colors uppercase tracking-widest font-black">
+          
+          {/* A PORTA DOS FUNDOS NINJA: Camuflada no ano, sem cursor de pointer */}
+          <p>
+            © <a href="/login" className="cursor-text outline-none">{new Date().getFullYear()}</a> Clínica de Podologia. Todos os direitos reservados.
+          </p>
+          
+          <div className="flex items-center gap-2">
+            <span>Desenvolvido por</span>
+            {/* SEU OUTDOOR: Coloque o link do seu portfólio ou WhatsApp aqui */}
+            <a 
+              href="https://zanvexis.com" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-900 text-white px-2 py-1 border-2 border-purple-500 hover:bg-yellow-400 hover:text-black hover:border-black transition-colors uppercase tracking-widest font-black"
+            >
               Zanvexis
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

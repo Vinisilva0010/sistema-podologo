@@ -307,12 +307,13 @@ function StepUserInfo() {
       const calculatedEndTime = minutesToTime(startMins + totalSessionMins);
 
       // Chamando a SERVER ACTION (O nosso servidor Node.js assume daqui pra frente)
-      const response = await createServerAppointment({
+     const response = await createServerAppointment({
         patientName: name,
-        patientPhone: phone,
+        patientPhone: maskPhone(phone), 
         notes: notes,
         serviceId: selectedService.id,
         serviceName: selectedService.name,
+        price: selectedService.price, 
         date: selectedDate,
         startTime: selectedTime,
         endTime: calculatedEndTime,

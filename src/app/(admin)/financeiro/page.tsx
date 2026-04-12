@@ -44,10 +44,13 @@ export default function FinanceiroPage() {
           const currentYear = new Date().getFullYear();
           const fetchedHistory: any[] = [];
 
-          appointmentsSnap.forEach((doc) => {
+         appointmentsSnap.forEach((doc) => {
             const data = doc.data();
-            // Acha o preço do serviço (se o serviço foi apagado, assume 0)
-            const price = pricesMap[data.serviceId] || 0;
+            
+            // A REGRA FINTECH: Tenta pegar o preço gravado na consulta. 
+            // Se for uma consulta de teste antiga (que não tem preço salvo), ele tenta olhar no dicionário. 
+            // Se o serviço antigo foi apagado, aí sim é 0.
+            const price = Number(data.price) || pricesMap[data.serviceId] || 0;
             
             sumTotal += price;
 
@@ -62,7 +65,7 @@ export default function FinanceiroPage() {
             fetchedHistory.push({
               id: doc.id,
               ...data,
-              priceCalculated: price
+              priceCalculated: price // Salva o valor exato pro histórico
             });
           });
 
