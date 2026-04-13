@@ -81,8 +81,8 @@ export function Footer() {
               <li className="flex flex-col md:flex-row items-center md:items-start gap-3 group">
                 <MapPin className="w-6 h-6 text-purple-400 flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
                 <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline decoration-2 underline-offset-4 transition-colors">
-                  Av. Principal, 123 - Sala 45<br />
-                  Bairro Centro - Cidade, SP
+                  Av. Rio das pedras, 1211 - Sala 09<br />
+                   - Cidade, SP
                 </a>
               </li>
               <li className="flex flex-col md:flex-row items-center md:items-start gap-3">

@@ -39,7 +39,7 @@ const router = useRouter();
 
             {/* Nome da Doutora destacado em bloco */}
             <div className="bg-black border-4 border-white text-white px-4 py-2 shadow-[4px_4px_0px_0px_#d8b4fe] md:shadow-[6px_6px_0px_0px_#d8b4fe]">
-              <h2 className="text-xl md:text-3xl font-bold tracking-wide">Dra. Nome da Podóloga</h2>
+              <h2 className="text-xl md:text-3xl font-bold tracking-wide">Lais Laurentino</h2>
             </div>
                <a 
               href="/meus-agendamentos" 
@@ -76,7 +76,7 @@ const router = useRouter();
                            
 
                <Image 
-                src="/perfil.png" 
+                src="/perfil2.png" 
                 alt="Foto da Dra." 
                 fill 
                 className="object-contain object-bottom"
