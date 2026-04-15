@@ -36,7 +36,7 @@ export default function LoginPage() {
     <main className="min-h-screen bg-brutal-bg flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-white border-4 border-black p-8 shadow-brutal flex flex-col items-center animate-in fade-in zoom-in duration-500">
         
-        <div className="w-16 h-16 bg-purple-500 border-4 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#000] -rotate-3">
+        <div className="w-16 h-16 bg-pink-500 border-4 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#000] -rotate-3">
           <Lock className="w-8 h-8 text-white" strokeWidth={2.5} />
         </div>
 

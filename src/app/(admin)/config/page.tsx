@@ -96,11 +96,11 @@ export default function ConfigPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block font-black uppercase text-sm mb-2">Nome do Tratamento</label>
-              <input required value={newService.name} onChange={(e) => setNewService({ ...newService, name: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-purple-100 transition-colors" />
+              <input required value={newService.name} onChange={(e) => setNewService({ ...newService, name: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-pink-100 transition-colors" />
             </div>
             <div>
               <label className="block font-black uppercase text-sm mb-2">Preço (R$)</label>
-              <input required type="number" value={newService.price} onChange={(e) => setNewService({ ...newService, price: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-purple-100 transition-colors" />
+              <input required type="number" value={newService.price} onChange={(e) => setNewService({ ...newService, price: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-pink-100 transition-colors" />
             </div>
             <div>
               <label className="block font-black uppercase text-sm mb-2">Duração (Minutos)</label>
@@ -113,7 +113,7 @@ export default function ConfigPage() {
           </div>
           <div>
             <label className="block font-black uppercase text-sm mb-2">Descrição Curta</label>
-            <textarea required rows={2} value={newService.description} onChange={(e) => setNewService({ ...newService, description: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-purple-100 transition-colors resize-none"></textarea>
+            <textarea required rows={2} value={newService.description} onChange={(e) => setNewService({ ...newService, description: e.target.value })} className="w-full border-4 border-black p-3 font-bold outline-none focus:bg-pink-100 transition-colors resize-none"></textarea>
           </div>
 
           {successMsg && <div className="bg-green-400 border-4 border-black p-3 font-black uppercase text-sm text-center">{successMsg}</div>}

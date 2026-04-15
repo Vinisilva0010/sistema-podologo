@@ -6,7 +6,7 @@ import { Scissors, Footprints, ShieldPlus, Sparkles, MessageCircle } from "lucid
 import { cn } from "@/lib/utils";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const WHATSAPP_NUMBER = "5511999999999"; // Coloque o número dela aqui
+const WHATSAPP_NUMBER = "5511984099457"; // Coloque o número dela aqui
 
 const services = [
   {
@@ -83,14 +83,14 @@ export function ServicesSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}
         >
-          <div className="inline-block bg-purple-300 border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_#0f0f0f] mb-6 -rotate-2">
+          <div className="inline-block bg-pink-300 border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_#0f0f0f] mb-6 -rotate-2">
             <h2 className="text-lg md:text-2xl font-black uppercase tracking-widest text-black">
               Nossos Tratamentos
             </h2>
           </div>
           <h3 className="text-4xl md:text-6xl font-black uppercase text-black max-w-3xl leading-[1.1]">
             Especialistas em devolver <br className="hidden md:block"/> 
-            <span className="text-purple-700 underline decoration-8 decoration-purple-300">seu conforto</span>
+            <span className="text-pink-700 underline decoration-8 decoration-pink-300">seu conforto</span>
           </h3>
         </div>
 
@@ -161,7 +161,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
       {/* O Botão Call to Action direto pro WhatsApp */}
       <button 
         onClick={handleWhatsAppClick}
-        className="w-full bg-brutal-black text-white p-4 flex items-center justify-between hover:bg-purple-700 transition-colors cursor-pointer group/btn"
+        className="w-full bg-brutal-black text-white p-4 flex items-center justify-between hover:bg-pink-700 transition-colors cursor-pointer group/btn"
       >
         <span className="font-black uppercase tracking-wider text-sm md:text-base">Saiba mas</span>
         <MessageCircle className="w-6 h-6 transform group-hover/btn:scale-110 transition-transform text-yellow-400" />

@@ -90,7 +90,7 @@ export default function MyBookingsPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(11) 99999-9999"
-                className="w-full border-4 border-black p-4 font-bold outline-none focus:bg-purple-100 transition-colors shadow-[4px_4px_0px_0px_#000]"
+                className="w-full border-4 border-black p-4 font-bold outline-none focus:bg-pink-100 transition-colors shadow-[4px_4px_0px_0px_#000]"
               />
             </div>
             <BrutalButton type="submit" variant="primary" size="lg" disabled={loading} className="w-full md:w-auto flex items-center justify-center gap-2 px-8">
@@ -108,7 +108,7 @@ export default function MyBookingsPage() {
                 {myAppointments.map((appt) => (
                   <div key={appt.id} className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_#000] overflow-hidden group transition-all duration-300">
                     
-                    <div className={`border-b-4 border-black p-4 flex justify-between items-center ${appt.status === "cancelled" ? "bg-red-400" : "bg-purple-300"}`}>
+                    <div className={`border-b-4 border-black p-4 flex justify-between items-center ${appt.status === "cancelled" ? "bg-red-400" : "bg-pink-300"}`}>
                       <span className="font-black uppercase tracking-widest text-black flex items-center gap-2">
                         <Calendar className="w-5 h-5" /> {appt.date}
                       </span>
@@ -146,7 +146,7 @@ export default function MyBookingsPage() {
                             <XCircle className="w-5 h-5" /> Cancelar
                           </button>
                           <a 
-                            href={`https://wa.me/5511999999999?text=Oi, preciso remarcar meu agendamento de ${appt.serviceName} do dia ${appt.date}.`}
+                            href={`https://wa.me/5511984099457?text=Oi, preciso remarcar meu agendamento de ${appt.serviceName} do dia ${appt.date}.`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 flex items-center justify-center bg-yellow-400 text-black border-4 border-black p-3 font-black uppercase text-sm shadow-[4px_4px_0px_0px_#000] hover:bg-yellow-300 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-1 active:shadow-none transition-all"

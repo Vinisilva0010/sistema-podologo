@@ -22,7 +22,7 @@ export function DoctorSection() {
         >
           <h2 className="text-4xl md:text-6xl font-black uppercase text-black max-w-2xl leading-[1.05]">
             Não entregue seus pés <br />
-            <span className="text-purple-700 underline decoration-8 decoration-yellow-400">a amadores.</span>
+            <span className="text-pink-700 underline decoration-8 decoration-yellow-400">a amadores.</span>
           </h2>
         </div>
 
@@ -31,11 +31,11 @@ export function DoctorSection() {
           
           {/* Bloco 1: A Copy Matadora */}
           <div className="md:col-span-2 bg-white border-4 border-black p-8 md:p-10 shadow-[6px_6px_0px_0px_#0f0f0f] md:shadow-brutal flex flex-col justify-center group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
-            <div className="w-16 h-16 bg-purple-300 border-4 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#0f0f0f] rotate-3 group-hover:rotate-12 transition-transform">
+            <div className="w-16 h-16 bg-pink-300 border-4 border-black flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#0f0f0f] rotate-3 group-hover:rotate-12 transition-transform">
               <Star className="w-8 h-8 text-black" strokeWidth={2.5} />
             </div>
             <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 text-black">
-              Dra. [Nome Dela Aqui]
+              Dra. [Lais Laurentino]
             </h3>
             <p className="text-lg md:text-xl font-bold text-gray-700 leading-relaxed max-w-xl">
               Esqueça aquele atendimento frio e cheio de dor. Nossa missão é resolver o seu problema na raiz com técnica avançada, ferramentas estéreis e uma abordagem 100% focada no seu alívio imediato.
@@ -43,7 +43,7 @@ export function DoctorSection() {
           </div>
 
           {/* Bloco 2: A Foto em Ação */}
-          <div className="md:row-span-2 relative min-h-[400px] border-4 border-black bg-purple-900 shadow-[6px_6px_0px_0px_#0f0f0f] md:shadow-brutal overflow-hidden group">
+          <div className="md:row-span-2 relative min-h-[400px] border-4 border-black bg-pink-900 shadow-[6px_6px_0px_0px_#0f0f0f] md:shadow-brutal overflow-hidden group">
             {/* Overlay amarelo brutalista */}
             <div className="absolute inset-0 bg-yellow-400/20 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500"></div>
             
@@ -72,13 +72,13 @@ export function DoctorSection() {
           </div>
 
           {/* Bloco 4: Selo de Biossegurança (HIDDEN NO MOBILE) */}
-          <div className="hidden md:flex md:col-span-1 bg-purple-500 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center overflow-hidden relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
+          <div className="hidden md:flex md:col-span-1 bg-pink-500 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center overflow-hidden relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
             <ShieldCheck className="w-16 h-16 text-white mb-4 relative z-10 group-hover:scale-110 transition-transform" strokeWidth={2} />
             <h4 className="text-xl lg:text-2xl font-black uppercase text-white relative z-10">
               Biossegurança <br/> Hospitalar
             </h4>
             
-            <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-purple-400 opacity-50 rotate-45 group-hover:rotate-90 transition-transform duration-700 ease-in-out"></div>
+            <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-pink-400 opacity-50 rotate-45 group-hover:rotate-90 transition-transform duration-700 ease-in-out"></div>
           </div>
 
         </div>

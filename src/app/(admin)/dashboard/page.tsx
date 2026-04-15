@@ -96,14 +96,14 @@ export default function DashboardPage() {
       
       <div className="mb-10">
         <h1 className="text-3xl md:text-5xl font-black uppercase text-black mb-2 flex items-center gap-3">
-          <Activity className="w-10 h-10 text-purple-600" strokeWidth={3} /> Painel Geral
+          <Activity className="w-10 h-10 text-pink-600" strokeWidth={3} /> Painel Geral
         </h1>
         <p className="font-bold text-gray-600">Visão panorâmica da clínica em tempo real.</p>
       </div>
 
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 border-4 border-black bg-white shadow-brutal">
-          <Activity className="w-12 h-12 animate-pulse text-purple-600 mb-4" strokeWidth={3} />
+          <Activity className="w-12 h-12 animate-pulse text-pink-600 mb-4" strokeWidth={3} />
           <p className="font-black uppercase tracking-widest text-gray-400">Analisando dados...</p>
         </div>
       ) : (
@@ -116,7 +116,7 @@ export default function DashboardPage() {
             <div className="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_#000] flex flex-col justify-between">
               <div className="flex justify-between items-start mb-4">
                 <h2 className="font-black uppercase text-sm tracking-widest text-gray-500">Pacientes Hoje</h2>
-                <div className="bg-purple-200 border-2 border-black p-2"><Users className="w-5 h-5 text-purple-700" strokeWidth={3} /></div>
+                <div className="bg-pink-200 border-2 border-black p-2"><Users className="w-5 h-5 text-pink-700" strokeWidth={3} /></div>
               </div>
               <div className="flex items-end gap-3">
                 <p className="text-5xl font-black">{todayTotal}</p>

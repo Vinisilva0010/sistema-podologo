@@ -44,7 +44,7 @@ export default function BookingPage() {
           >
             <ArrowLeft strokeWidth={3} className="w-5 h-5" /> Voltar
           </button>
-          <div className="bg-purple-300 border-4 border-black px-4 py-1 shadow-[4px_4px_0px_0px_#000] rotate-2">
+          <div className="bg-pink-300 border-4 border-black px-4 py-1 shadow-[4px_4px_0px_0px_#000] rotate-2">
             <span className="font-black uppercase tracking-widest text-sm">Agendamento</span>
           </div>
         </div>
@@ -113,7 +113,7 @@ function StepSelectService() {
       {/* Skeleton Brutalista de Loading */}
       {loading ? (
         <div className="flex flex-col items-center justify-center py-12 border-4 border-black bg-gray-50 shadow-[6px_6px_0px_0px_#000]">
-          <Loader2 className="w-12 h-12 animate-spin text-purple-600 mb-4" strokeWidth={3} />
+          <Loader2 className="w-12 h-12 animate-spin text-pink-600 mb-4" strokeWidth={3} />
           <p className="font-black uppercase tracking-widest text-gray-400">Carregando Catálogo...</p>
         </div>
       ) : (
@@ -129,7 +129,7 @@ function StepSelectService() {
                 <h3 className="text-xl font-black uppercase">{service.name}</h3>
                 <p className="font-bold text-gray-700 text-sm mt-1">{service.description}</p>
                 {/* Mostra o tempo do procedimento + tempo de limpeza pra passar transparência */}
-                <span className="inline-block mt-3 text-xs font-black bg-purple-200 border-2 border-black px-2 py-1 uppercase">
+                <span className="inline-block mt-3 text-xs font-black bg-pink-200 border-2 border-black px-2 py-1 uppercase">
                   ⏱️ {service.durationMin} min (+ limpeza)
                 </span>
               </div>
@@ -219,8 +219,8 @@ function StepSelectDateTime() {
 
   return (
     <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-      <div className="flex items-center gap-3 mb-6 bg-purple-100 border-4 border-black p-3 shadow-[4px_4px_0px_0px_#000]">
-        <Info className="text-purple-700 shrink-0" strokeWidth={2.5} />
+      <div className="flex items-center gap-3 mb-6 bg-pink-100 border-4 border-black p-3 shadow-[4px_4px_0px_0px_#000]">
+        <Info className="text-pink-700 shrink-0" strokeWidth={2.5} />
         <p className="font-bold text-sm">Tempo necessário: <span className="text-black uppercase font-black">{selectedService.durationMin + selectedService.bufferMin} min</span></p>
       </div>
 
@@ -238,7 +238,7 @@ function StepSelectDateTime() {
               onClick={() => setDate(d)}
               className={cn(
                 "border-4 border-black p-3 font-black uppercase text-sm md:text-base transition-all shadow-[4px_4px_0px_0px_#000]",
-                date === d ? "bg-purple-500 text-white translate-y-1 shadow-none" : "bg-white hover:bg-gray-100 hover:-translate-y-1"
+                date === d ? "bg-pink-500 text-white translate-y-1 shadow-none" : "bg-white hover:bg-gray-100 hover:-translate-y-1"
               )}
             >
               {displayDate}
@@ -253,7 +253,7 @@ function StepSelectDateTime() {
           <h2 className="text-2xl font-black uppercase mb-4 border-t-4 border-black pt-6">Horários Livres</h2>
           
           {loadingSlots ? (
-            <div className="flex items-center gap-2 font-bold text-purple-600">
+            <div className="flex items-center gap-2 font-bold text-pink-600">
               <Loader2 className="animate-spin" /> Calculando disponibilidade...
             </div>
           ) : slots.length > 0 ? (
@@ -341,7 +341,7 @@ function StepUserInfo() {
           <p className="font-bold text-sm uppercase">Tratamento</p>
           <p className="font-black text-xl">{selectedService?.name}</p>
         </div>
-        <div className="flex-1 bg-purple-300 border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000] rotate-1">
+        <div className="flex-1 bg-pink-300 border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000] rotate-1">
           <p className="font-bold text-sm uppercase">Data e Hora</p>
           <p className="font-black text-xl">{selectedDate} às {selectedTime}</p>
         </div>
@@ -386,9 +386,9 @@ function StepUserInfo() {
           ></textarea>
         </div>
 
-        <div className="my-2 border-l-4 border-purple-500 pl-4">
+        <div className="my-2 border-l-4 border-pink-500 pl-4">
           <p className="font-bold text-sm text-gray-600 mb-2">Seu caso é muito específico?</p>
-          <a href="#" className="inline-flex items-center gap-2 font-black uppercase text-sm text-purple-700 hover:text-purple-900 transition-colors group">
+          <a href="#" className="inline-flex items-center gap-2 font-black uppercase text-sm text-pink-700 hover:text-pink-900 transition-colors group">
             <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
             Tire uma dúvida direto com a Dra.
           </a>

@@ -13,7 +13,7 @@ export const BrutalButton = forwardRef<HTMLButtonElement, BrutalButtonProps>(
     const baseStyles = "relative font-bold inline-flex items-center justify-center transition-all duration-150 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none border-4 border-black disabled:opacity-50 disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 disabled:active:shadow-[6px_6px_0px_0px_#0f0f0f]";
 
     const variants = {
-      primary: "bg-purple-500 text-white shadow-[6px_6px_0px_0px_#0f0f0f] hover:bg-purple-400",
+      primary: "bg-pink-500 text-white shadow-[6px_6px_0px_0px_#0f0f0f] hover:bg-pink-400",
       secondary: "bg-white text-black shadow-[6px_6px_0px_0px_#0f0f0f] hover:bg-gray-100",
       danger: "bg-red-500 text-white shadow-[6px_6px_0px_0px_#0f0f0f] hover:bg-red-400",
     };

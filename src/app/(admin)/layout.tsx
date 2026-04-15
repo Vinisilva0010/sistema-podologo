@@ -20,7 +20,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       
       {/* Sidebar (Desktop) */}
       <aside className="hidden md:flex w-64 border-r-4 border-black bg-white flex-col h-screen sticky top-0">
-        <div className="p-6 border-b-4 border-black bg-purple-500">
+        <div className="p-6 border-b-4 border-black bg-pink-500">
           <h1 className="font-black text-2xl uppercase text-white tracking-widest">Dra. Admin</h1>
         </div>
         <nav className="flex-1 flex flex-col p-4 gap-2">
@@ -50,7 +50,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           return (
             <Link key={item.name} href={item.href} className={cn(
               "flex flex-col items-center justify-center w-full py-2 gap-1 transition-all",
-              isActive ? "text-purple-700" : "text-gray-500 hover:text-black"
+              isActive ? "text-pink-700" : "text-gray-500 hover:text-black"
             )}>
               <div className={cn("p-1", isActive && "bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_#000] rounded-sm")}>
                 <item.icon strokeWidth={isActive ? 3 : 2} className="w-6 h-6" />

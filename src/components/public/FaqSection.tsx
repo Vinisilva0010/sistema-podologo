@@ -45,13 +45,13 @@ export function FaqSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           )}
         >
-          <div className="inline-block bg-purple-500 border-4 border-black px-4 py-2 shadow-brutal-sm mb-6 -rotate-2">
+          <div className="inline-block bg-pink-500 border-4 border-black px-4 py-2 shadow-brutal-sm mb-6 -rotate-2">
             <h2 className="text-xl md:text-2xl font-black uppercase tracking-widest text-white">
               Tire suas Dúvidas
             </h2>
           </div>
           <h3 className="text-4xl md:text-5xl font-black uppercase text-black leading-tight">
-            Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-purple-500 underline decoration-8 decoration-black">Frequentes</span>
+            Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-pink-500 underline decoration-8 decoration-black">Frequentes</span>
           </h3>
         </div>
 

@@ -10,12 +10,12 @@ const router = useRouter();
 
   return (
     <>
-      <section className="relative w-full min-h-[90vh] flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-purple-800 border-b-[6px] border-black pt-12 pb-24 md:pb-12">
+      <section className="relative w-full min-h-[90vh] flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-pink-800 border-b-[6px] border-black pt-12 pb-24 md:pb-12">
 
         {/* 1. Fundo Desfocado com Pan Lateral no Mobile */}
         <div className="absolute inset-0 z-0">
           {/* Overlay roxo mais claro como você pediu */}
-          <div className="absolute inset-0 bg-purple-800/40 mix-blend-multiply z-10" />
+          <div className="absolute inset-0 bg-pink-300/40 mix-blend-multiply z-10" />
           {/* Note a classe animate-[panImage_30s_linear_infinite_alternate] puxando nossa keyframe do css */}
           <img 
             src="/p-hero.png" 
@@ -28,48 +28,50 @@ const router = useRouter();
           
           {/* 2. Coluna da Esquerda: A Copy (No mobile, isso desce pra baixo da foto) */}
           <div className="flex flex-col items-start justify-center gap-4 md:gap-6 order-2 lg:order-1">
-            
-            {/* O "Post-it" com efeito de máquina de escrever */}
-            <TypewriterNote text="O Fim da Dor nos seus Pés" className="mb-2" />
+  
+  {/* O "Post-it" com efeito de máquina de escrever */}
+  <TypewriterNote text="O Fim da Dor nos seus Pés" className="mb-2" />
 
-            <h1 className="text-4xl md:text-7xl font-black text-white uppercase leading-[1.05] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-              Podologia <br />
-              <span className="text-purple-300">Avançada</span>
-            </h1>
+  <h1 className="text-4xl md:text-7xl font-black text-white uppercase leading-[1.05] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+    Podologia <br />
+    <span className="text-pink-500">Avançada</span>
+  </h1>
 
-            {/* Nome da Doutora destacado em bloco */}
-            <div className="bg-black border-4 border-white text-white px-4 py-2 shadow-[4px_4px_0px_0px_#d8b4fe] md:shadow-[6px_6px_0px_0px_#d8b4fe]">
-              <h2 className="text-xl md:text-3xl font-bold tracking-wide">Lais Laurentino</h2>
-            </div>
-               <a 
-              href="/meus-agendamentos" 
-              className="inline-block mt-4 bg-brutal-bg text-black font-black uppercase text-sm px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#a855f7] hover:bg-yellow-400 hover:-translate-y-1 transition-all"
-            >
-              Consultar meu Agendamento
-            </a>
-            {/* Esse parágrafo longo eu escondi no celular pra não ficar chato de ler */}
-            <p className="text-base md:text-xl text-purple-50 max-w-lg font-medium bg-black/50 p-3 md:p-4 border-l-4 border-purple-400 backdrop-blur-sm hidden md:block">
-              Tratamento humanizado para unhas encravadas, calos e dores. Recupere o conforto a cada passo sem enrolação e com biossegurança total.
-            </p>
+  {/* Nome da Doutora destacado em bloco */}
+  <div className="bg-black border-4 border-white text-white px-4 py-2 shadow-[4px_4px_0px_0px_#f9a8d4] md:shadow-[6px_6px_0px_0px_#f9a8d4]">
+    <h2 className="text-xl md:text-3xl font-bold tracking-wide">Lais Laurentino</h2>
+  </div>
 
-            {/* Botão Agendar (SÓ APARECE NO DESKTOP AQUI) */}
-            <div className="hidden md:flex flex-wrap gap-4 mt-4 w-full">
-             <BrutalButton 
-                size="lg" 
-                variant="primary" 
-                className="w-full sm:w-auto"
-                onClick={() => router.push('/agendar')} 
-                >
-                Agendar Avaliação
-                </BrutalButton>
-            </div>
-          </div>
+  <a 
+    href="/meus-agendamentos" 
+    className="inline-block mt-4 bg-brutal-bg text-black font-black uppercase text-sm px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#ec4899] hover:bg-yellow-400 hover:-translate-y-1 transition-all"
+  >
+    Consultar meu Agendamento
+  </a>
+
+  {/* Esse parágrafo longo eu escondi no celular pra não ficar chato de ler */}
+  <p className="text-base md:text-xl text-pink-50 max-w-lg font-medium bg-black/50 p-3 md:p-4 border-l-4 border-pink-400 backdrop-blur-sm hidden md:block">
+    Tratamento humanizado para unhas encravadas, calos e dores. Recupere o conforto a cada passo sem enrolação e com biossegurança total.
+  </p>
+
+  {/* Botão Agendar (SÓ APARECE NO DESKTOP AQUI) */}
+  <div className="hidden md:flex flex-wrap gap-4 mt-4 w-full">
+    <BrutalButton 
+      size="lg" 
+      variant="primary" 
+      className="w-full sm:w-auto"
+      onClick={() => router.push('/agendar')} 
+    >
+      Agendar Avaliação
+    </BrutalButton>
+  </div>
+</div>
 
           {/* 3. Coluna da Direita: A Foto dela em PNG (No mobile, isso vai pro topo) */}
           <div className="relative h-87.5 md:h-125 lg:h-full w-full flex items-end justify-center mt-4 lg:mt-0 order-1 lg:order-2">
             
            {/* Portal Brutalista (Arco) */}
-<div className="absolute bottom-0 w-65h-80 md:w-95 md:h-[500px] bg-purple-300 rounded-t-[150px] md:rounded-t-[200px] border-4 border-black border-b-0 shadow-[10px_0px_0px_0px_#0f0f0f] z-0"></div>
+<div className="absolute bottom-0 w-65h-80 md:w-95 md:h-[500px] bg-pink-300 rounded-t-[150px] md:rounded-t-[200px] border-4 border-black border-b-0 shadow-[10px_0px_0px_0px_#0f0f0f] z-0"></div>
             
             {/* Área da imagem PNG sem fundo */}
             <div className="relative z-10 w-full h-full flex items-end justify-center">

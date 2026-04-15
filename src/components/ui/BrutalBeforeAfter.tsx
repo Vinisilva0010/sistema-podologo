@@ -85,7 +85,7 @@ export function BrutalBeforeAfter({ beforeImage, afterImage, altText }: BrutalBe
 
       {/* Etiqueta "DEPOIS" */}
       <div className="absolute top-4 right-4 z-20 pointer-events-none">
-        <span className="bg-purple-400 border-2 border-black text-black font-black text-xs md:text-sm px-2 py-1 shadow-[2px_2px_0px_0px_#000] uppercase -rotate-2 inline-block">
+        <span className="bg-pink-400 border-2 border-black text-black font-black text-xs md:text-sm px-2 py-1 shadow-[2px_2px_0px_0px_#000] uppercase -rotate-2 inline-block">
           Depois
         </span>
       </div>

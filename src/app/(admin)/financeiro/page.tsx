@@ -131,7 +131,7 @@ export default function FinanceiroPage() {
               <p className="text-4xl lg:text-5xl font-black truncate">{formatBRL(totalRevenue)}</p>
             </div>
 
-            <div className="bg-purple-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_#000] transform transition-transform hover:-translate-y-1">
+            <div className="bg-pink-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_#000] transform transition-transform hover:-translate-y-1">
               <div className="flex items-center gap-2 mb-4">
                 <CalendarIcon className="w-6 h-6" strokeWidth={3} />
                 <h2 className="font-black uppercase text-sm tracking-widest">Consultas Finalizadas</h2>
@@ -165,7 +165,7 @@ export default function FinanceiroPage() {
                       <tr key={item.id} className="border-b-2 border-gray-200 hover:bg-green-50 transition-colors font-bold">
                         <td className="p-4 border-r-2 border-gray-200 whitespace-nowrap">{item.date}</td>
                         <td className="p-4 border-r-2 border-gray-200">{item.patientName}</td>
-                        <td className="p-4 border-r-2 border-gray-200 text-purple-700">{item.serviceName}</td>
+                        <td className="p-4 border-r-2 border-gray-200 text-pink-700">{item.serviceName}</td>
                         <td className="p-4 text-right text-green-700 font-black">{formatBRL(item.priceCalculated)}</td>
                       </tr>
                     ))}
