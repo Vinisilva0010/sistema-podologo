@@ -411,7 +411,41 @@ function StepUserInfo() {
 // ==========================================
 function StepSuccess() {
   const { selectedDate, selectedTime } = useBookingStore();
+const handleAddToCalendar = () => {
+    // Monta a data de início e fim (assumindo 1 hora de consulta)
+    const start = new Date(`${selectedDate}T${selectedTime}:00`);
+    const end = new Date(start.getTime() + 60 * 60 * 1000);
 
+    // Formata a data para o padrão exigido pelos calendários
+    const formatDate = (date: Date) => date.toISOString().replace(/-|:|\.\d\d\d/g, "");
+
+    // Arquivo ICS com o gatilho exato de 30 minutos antes (TRIGGER:-PT30M)
+    const icsContent = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "BEGIN:VEVENT",
+      `DTSTART:${formatDate(start)}`,
+      `DTEND:${formatDate(end)}`,
+      "SUMMARY:Consulta de Podologia",
+      "DESCRIPTION:Sua consulta está confirmada na clínica.",
+      "BEGIN:VALARM",
+      "TRIGGER:-PT30M",
+      "ACTION:DISPLAY",
+      "DESCRIPTION:Lembrete de Consulta",
+      "END:VALARM",
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\n");
+
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "consulta_podologia.ics");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="flex flex-col items-center text-center py-10 animate-in zoom-in-95 duration-500">
       <div className="w-24 h-24 bg-green-400 border-4 border-black rounded-full flex items-center justify-center shadow-[6px_6px_0px_0px_#000] mb-8">
@@ -424,7 +458,7 @@ function StepSuccess() {
       </p>
 
       <div className="flex flex-col gap-4 w-full md:w-auto">
-        <BrutalButton variant="primary" className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800">
+        <BrutalButton variant="primary" onClick={handleAddToCalendar} className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800">
           <CalendarClock className="w-5 h-5" /> Adicionar na Agenda
         </BrutalButton>
         <BrutalButton variant="secondary" onClick={() => window.location.href = '/'}>
