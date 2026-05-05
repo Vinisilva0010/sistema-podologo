@@ -216,8 +216,32 @@ function StepSelectDateTime() {
   }, [date, selectedService]);
 
   if (!selectedService) return null;
+// BLOCO DE SEGURANÇA: Filtra os horários passados se o dia selecionado for hoje
+  const agora = new Date();
+  const dataDeHoje = `${agora.getFullYear()}-${String(agora.getMonth() + 1).padStart(2, '0')}-${String(agora.getDate()).padStart(2, '0')}`;
+  const horaAtual = agora.getHours();
+  const minutoAtual = agora.getMinutes();
 
+  const validSlots = slots.filter((time) => {
+    // Se o cliente escolheu amanhã ou depois, todos os horários ficam livres
+    if (date !== dataDeHoje) return true; 
+    
+    const [hStr, mStr] = time.split(':');
+    const horaDoSlot = parseInt(hStr, 10);
+    const minutoDoSlot = parseInt(mStr, 10);
+
+    // Se a hora do botão já passou, corta.
+    if (horaDoSlot < horaAtual) return false;
+    
+    // Se for a mesma hora, verifica se os minutos já passaram.
+    // Damos 15 minutos de margem para não ter agendamento "em cima da hora".
+    if (horaDoSlot === horaAtual && minutoDoSlot <= minutoAtual + 15) return false;
+
+    return true; // Se sobreviveu até aqui, o horário é válido e no futuro.
+  });
   return (
+
+    
     <div className="animate-in fade-in slide-in-from-right-8 duration-500">
       <div className="flex items-center gap-3 mb-6 bg-pink-100 border-4 border-black p-3 shadow-[4px_4px_0px_0px_#000]">
         <Info className="text-pink-700 shrink-0" strokeWidth={2.5} />
@@ -232,7 +256,10 @@ function StepSelectDateTime() {
           const [year, month, day] = d.split('-');
           const displayDate = `${day}/${month}`;
           
+
+          
           return (
+            
             <button
               key={d}
               onClick={() => setDate(d)}
@@ -256,9 +283,9 @@ function StepSelectDateTime() {
             <div className="flex items-center gap-2 font-bold text-pink-600">
               <Loader2 className="animate-spin" /> Calculando disponibilidade...
             </div>
-          ) : slots.length > 0 ? (
+          ) : validSlots.length > 0 ? (
             <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
-              {slots.map((t) => (
+              {validSlots.map((t) => (
                 <button
                   key={t}
                   onClick={() => selectDateTime(date, t)}
@@ -270,7 +297,7 @@ function StepSelectDateTime() {
             </div>
           ) : (
             <div className="bg-red-100 border-4 border-black p-4 font-black uppercase text-red-700">
-              Putz, agenda lotada nesse dia para esse tratamento. Escolha outra data.
+              Putz, agenda lotada ou horários de hoje já encerrados. Escolha outra data.
             </div>
           )}
         </div>
