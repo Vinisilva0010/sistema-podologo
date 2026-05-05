@@ -62,6 +62,24 @@ export default function MyBookingsPage() {
     }
   };
 
+// BLOCO DE MÁSCARA: Formata o telefone em tempo real para bater com o banco de dados
+  // BLOCO DE MÁSCARA: Tipado corretamente para TypeScript
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+    
+    if (value.length > 11) value = value.slice(0, 11); // Trava em 11 dígitos no máximo
+    
+    // Aplica a formatação (XX) XXXXX-XXXX
+    if (value.length > 2) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    }
+    if (value.length > 9) {
+      value = `${value.slice(0, 10)}-${value.slice(10)}`;
+    }
+    
+    setPhone(value);
+  };
+
   return (
     <main className="min-h-screen bg-brutal-bg flex flex-col items-center pt-8 pb-24 px-4 md:px-6">
       <div className="w-full max-w-2xl">
@@ -88,7 +106,7 @@ export default function MyBookingsPage() {
                 required
                 type="tel"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={handlePhoneChange}
                 placeholder="(11) 99999-9999"
                 className="w-full border-4 border-black p-4 font-bold outline-none focus:bg-pink-100 transition-colors shadow-[4px_4px_0px_0px_#000]"
               />
