@@ -35,10 +35,10 @@ export function DoctorSection() {
               <Star className="w-8 h-8 text-black" strokeWidth={2.5} />
             </div>
             <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 text-black">
-              Dra. [Lais Laurentino]
+              Lais Laurentino
             </h3>
             <p className="text-lg md:text-xl font-bold text-gray-700 leading-relaxed max-w-xl">
-              Esqueça aquele atendimento frio e cheio de dor. Nossa missão é resolver o seu problema na raiz com técnica avançada, ferramentas estéreis e uma abordagem 100% focada no seu alívio imediato.
+              Esqueça aquele atendimento frio e cheio de dor. Minha missão é resolver o seu problema na raiz com técnica avançada, ferramentas estéreis e uma abordagem 100% focada no seu alívio imediato.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export function DoctorSection() {
             <div className="absolute inset-0 bg-yellow-400/20 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500"></div>
             
             <Image 
-              src="/dra-acao.png" 
+              src="/aprox.jpeg" 
               alt="Dra. realizando procedimento"
               fill
               className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05] group-hover:scale-100"
@@ -64,7 +64,7 @@ export function DoctorSection() {
           <div className="hidden md:flex md:col-span-1 bg-yellow-400 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f]">
             <Award className="w-12 h-12 text-black mb-4" strokeWidth={2.5} />
             <span className="text-5xl lg:text-6xl font-black text-black tracking-tighter mb-2">
-              +5k
+              +500
             </span>
             <span className="font-bold uppercase tracking-widest text-sm text-black border-t-4 border-black pt-2 w-full">
               Pés Recuperados
@@ -75,7 +75,7 @@ export function DoctorSection() {
           <div className="hidden md:flex md:col-span-1 bg-pink-500 border-4 border-black p-8 shadow-brutal flex-col items-center justify-center text-center overflow-hidden relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#0f0f0f] transition-all duration-300">
             <ShieldCheck className="w-16 h-16 text-white mb-4 relative z-10 group-hover:scale-110 transition-transform" strokeWidth={2} />
             <h4 className="text-xl lg:text-2xl font-black uppercase text-white relative z-10">
-              Biossegurança <br/> Hospitalar
+              Especialista em pés diabéticos <br/> e também <br/> em pés de atletas
             </h4>
             
             <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-pink-400 opacity-50 rotate-45 group-hover:rotate-90 transition-transform duration-700 ease-in-out"></div>

@@ -21,7 +21,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar (Desktop) */}
       <aside className="hidden md:flex w-64 border-r-4 border-black bg-white flex-col h-screen sticky top-0">
         <div className="p-6 border-b-4 border-black bg-pink-500">
-          <h1 className="font-black text-2xl uppercase text-white tracking-widest">Dra. Admin</h1>
+          <h1 className="font-black text-2xl uppercase text-white tracking-widest">ADM PODOLOGIA</h1>
         </div>
         <nav className="flex-1 flex flex-col p-4 gap-2">
           {navItems.map((item) => {
