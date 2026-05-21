@@ -10,14 +10,14 @@ const WHATSAPP_NUMBER = "5511984099457";
 const cases = [
   {
     title: "Reconstrução de Unha",
-    description: "Paciente sofria com onicocriptose (unha encravada) há meses. Procedimento indolor realizado em 45 minutos com alívio imediato.",
+    description: "Paciente sofria com onicocriptose (unha encravada) há meses. Procedimento indolor realizado e com alívio imediato.",
     // Substitua pelos PNGs ou WEBP reais que você vai gerar
     before: "/antes-1.png",
     after: "/depois-1.png", 
   },
   {
     title: "Tratamento de Fissuras",
-    description: "Recuperação da elasticidade da pele do calcanhar através de desbaste técnico e hidratação profunda em apenas 2 sessões.",
+    description: "Recuperação da elasticidade da pele do calcanhar através de desbaste técnico e hidratação profunda.",
     before: "/antes-2.png",
     after: "/depois-2.png",
   }
@@ -27,7 +27,7 @@ export function CasesSection() {
   const { ref, isVisible } = useScrollReveal();
 
   const handleWhatsAppClick = () => {
-    const text = "Oi, Dra! Vi os resultados no site e gostaria de saber se o meu caso tem jeito. Podemos agendar uma avaliação?";
+    const text = "Oi, Lais! Vi os resultados no site e gostaria de saber se o meu caso tem jeito. Podemos agendar uma avaliação?";
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
   };
 

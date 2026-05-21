@@ -24,11 +24,19 @@ const services = [
     image: "/pe2.png",
   },
   {
+
     title: "Pé Diabético",
+
     description: "Avaliação preventiva, corte técnico e tratamento especializado com foco total em biossegurança.",
+
     icon: ShieldPlus,
+
     color: "bg-green-400",
-    image: "/pe3.png",
+
+    image: "/dist.jpeg",
+
+    imagePosition: "object-[50%_35%]", 
+
   },
   {
     title: "Infecções e Fungos",
@@ -116,7 +124,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
 
   // Função para gerar o link dinâmico do WhatsApp
   const handleWhatsAppClick = () => {
-    const text = `Oi, Dra! Estava no site e queria tirar uma dúvida sobre o tratamento de *${service.title}*.`;
+    const text = `Oi, Lais! Estava no site e queria tirar uma dúvida sobre o tratamento de *${service.title}*.`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
@@ -148,11 +156,16 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
       {/* A Imagem do Serviço incorporada na base do Card */}
       <div className="w-full h-40 border-t-4 border-black relative overflow-hidden bg-gray-200">
        <Image 
-  src={service.image} 
-  alt={`Tratamento de ${service.title}`}
-  fill
-  className="object-cover object-center md:grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-/>
+
+          src={service.image} 
+
+          alt={`Tratamento de ${service.title}`}
+
+          fill
+
+          className={`object-cover md:grayscale group-hover:grayscale-0 transition-all duration-500 scale-[1.08] ${service.imagePosition || "object-center"}`}
+
+        />
         {/* Overlay brutalista de scanlines (efeito estilo TV antiga) opcional */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
       </div>

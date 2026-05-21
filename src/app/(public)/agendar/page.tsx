@@ -385,7 +385,7 @@ function StepUserInfo() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text" 
-            placeholder="Como a Dra. deve te chamar?"
+            placeholder="Como devo te chamar?"
             className="w-full border-4 border-black p-4 font-bold outline-none focus:bg-yellow-100 transition-colors shadow-[4px_4px_0px_0px_#000]"
           />
         </div>
@@ -415,9 +415,9 @@ function StepUserInfo() {
 
         <div className="my-2 border-l-4 border-pink-500 pl-4">
           <p className="font-bold text-sm text-gray-600 mb-2">Seu caso é muito específico?</p>
-          <a href="#" className="inline-flex items-center gap-2 font-black uppercase text-sm text-pink-700 hover:text-pink-900 transition-colors group">
+          <a href="https://wa.me/5511984099457?text=Olá,%20gostaria%20de%20tirar%20uma%20dúvida%20sobre%20meu%20caso." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-black uppercase text-sm text-pink-700 hover:text-pink-900 transition-colors group">
             <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            Tire uma dúvida direto com a Dra.
+            Tire uma dúvida direto no whatsapp
           </a>
         </div>
 

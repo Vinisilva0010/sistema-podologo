@@ -8,7 +8,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const faqs = [
   {
     question: "Dói muito para tratar unha encravada?",
-    answer: "Não! Esse é o maior mito da podologia. Nós utilizamos técnicas avançadas, instrumentais adequados e emolientes específicos que amolecem a região. O alívio é quase imediato após a remoção da espícula (o pedaço de unha que está machucando).",
+    answer: "Não! Esse é o maior mito da podologia. Utilizo técnicas avançadas, instrumentais adequados e emolientes específicos que amolecem a região. O alívio é quase imediato após a remoção da espícula (o pedaço de unha que está machucando).",
   },
   {
     question: "Qual a diferença entre ir na pedicure e na podóloga?",
@@ -16,11 +16,11 @@ const faqs = [
   },
   {
     question: "Vocês atendem pacientes com diabetes?",
-    answer: "Sim, somos especialistas em pé diabético. Pacientes com diabetes precisam de um cuidado redobrado devido à dificuldade de cicatrização e perda de sensibilidade. Nosso protocolo é 100% focado em prevenção e tratamento seguro sem cortes de risco.",
+    answer: "Sim, sou especialista em pé diabético. Pacientes com diabetes precisam de um cuidado redobrado devido à dificuldade de cicatrização e perda de sensibilidade. Sou 100% focada em prevenção e tratamento seguro sem cortes de risco.",
   },
   {
     question: "Quanto tempo dura uma sessão?",
-    answer: "Depende muito do caso. Uma profilaxia básica (limpeza preventiva) dura em média 45 minutos. Já o tratamento de uma unha muito inflamada pode levar 1 hora. O importante é: nós não fazemos nada correndo. Seu pé terá o tempo que precisar.",
+    answer: "Depende muito do caso. Uma profilaxia básica (limpeza preventiva) dura em média 50 minutos. Já o tratamento de uma unha muito inflamada pode levar 1 hora. O importante é: não fazemos nada correndo. Seu pé terá o tempo que precisar.",
   },
 ];
 
