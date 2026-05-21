@@ -147,12 +147,11 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
 
       {/* A Imagem do Serviço incorporada na base do Card */}
       <div className="w-full h-40 border-t-4 border-black relative overflow-hidden bg-gray-200">
-        <Image 
+       <Image 
   src={service.image} 
   alt={`Tratamento de ${service.title}`}
   fill
- 
-  className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-500 scale-[1.08]"
+  className="object-cover object-center md:grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
 />
         {/* Overlay brutalista de scanlines (efeito estilo TV antiga) opcional */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
