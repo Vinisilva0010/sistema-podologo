@@ -4,6 +4,7 @@ import { ServicesSection } from "@/components/public/ServicesSection";
 import { CasesSection } from "@/components/public/CasesSection";
 import { DoctorSection } from "@/components/public/DoctorSection";
 import {FaqSection} from "@/components/public/FaqSection";
+import BlogPreview from "@/components/public/BlogPreview";
 import { Footer } from "@/components/public/Footer";
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       < CasesSection />
       <DoctorSection />
       <FaqSection />
+      <BlogPreview />
       <Footer />
     </main>
   );
