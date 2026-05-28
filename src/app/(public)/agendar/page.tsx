@@ -134,7 +134,7 @@ function StepSelectService() {
                 </span>
               </div>
               <div className="bg-black text-white font-black px-4 py-2 border-2 border-black group-hover:bg-white group-hover:text-black transition-colors shrink-0 text-lg">
-                R$ {service.price}
+                A partir de R$ {service.price}
               </div>
             </button>
           ))}
