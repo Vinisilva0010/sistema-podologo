@@ -1,6 +1,6 @@
 // src/lib/push.ts
 // Server-only helper. Never import this file from a client component.
-import webpush from "web-push";
+import * as webpush from "web-push";
 import { createHash } from "crypto";
 import { adminDb } from "@/lib/firebaseAdmin";
 
