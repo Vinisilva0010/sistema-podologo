@@ -170,7 +170,7 @@ function StepSelectDateTime() {
       // Dia 0 é Domingo. Pula os domingos.
       if (currentDate.getDay() !== 0) { 
         // Formata para o banco (YYYY-MM-DD)
-        const formatted = currentDate.toISOString().split('T')[0];
+        const formatted = currentDate.toLocaleDateString('en-CA');
         dates.push(formatted);
       }
       currentDate.setDate(currentDate.getDate() + 1);
@@ -481,7 +481,7 @@ const handleAddToCalendar = () => {
       
       <h2 className="text-4xl md:text-5xl font-black uppercase mb-4">Horário <br/><span className="text-green-600">Garantido!</span></h2>
       <p className="font-bold text-xl text-gray-700 max-w-md mb-8">
-        Tudo certo para {selectedDate} às {selectedTime}. Te enviamos uma confirmação no WhatsApp.
+        Tudo certo para {selectedDate} às {selectedTime}. Adicione na sua agenda para não esquecer.
       </p>
 
       <div className="flex flex-col gap-4 w-full md:w-auto">
