@@ -3,6 +3,7 @@
 
 import { adminDb } from "@/lib/firebaseAdmin";
 import { timeToMinutes, minutesToTime } from "@/lib/timeUtils";
+import { notifyStaff } from "@/lib/push";
 
 type ActionResult = { success: boolean; id?: string; error?: string; code?: string };
 
@@ -61,6 +62,17 @@ export async function createServerAppointment(input: Record<string, unknown>): P
         createdAt: new Date().toISOString(),
       });
     });
+
+    try {
+      const [, month, day] = date.split("-");
+      await notifyStaff({
+        title: "Novo agendamento",
+        body: `${patientName} - ${service.name ?? ""} - ${day}/${month} às ${startTime}`,
+        url: "/agendamentos",
+      });
+    } catch (err) {
+      console.error("Failed to notify staff:", err);
+    }
 
     return { success: true, id: newDocRef.id };
   } catch (error) {

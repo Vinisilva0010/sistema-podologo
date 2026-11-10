@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { collection, query, onSnapshot, getDocs } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "@/lib/firebase";
+import { PushToggle } from "@/components/PushToggle";
 import { Users, DollarSign, Clock, Calendar, ArrowRight, Activity } from "lucide-react";
 
 export default function DashboardPage() {
@@ -99,6 +100,7 @@ export default function DashboardPage() {
           <Activity className="w-10 h-10 text-pink-600" strokeWidth={3} /> Painel Geral
         </h1>
         <p className="font-bold text-gray-600">Visão panorâmica da clínica em tempo real.</p>
+        <PushToggle />
       </div>
 
       {loading ? (
