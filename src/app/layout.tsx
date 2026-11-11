@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     images: ["/p-hero.png"],
   },
   manifest: "/manifest.json",
+  verification: { google: "Ug1vxNoW6BFS_1r62DKPKAPEPavgH08YR5wOu8MY2s0" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
