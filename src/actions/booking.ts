@@ -25,6 +25,12 @@ export async function createServerAppointment(input: Record<string, unknown>): P
       return { success: false, error: "Dados do agendamento inválidos." };
     }
 
+    // Clinic is closed on Sunday and Monday. Noon UTC avoids timezone day shifts.
+    const weekday = new Date(`${date}T12:00:00Z`).getUTCDay();
+    if (weekday === 0 || weekday === 1) {
+      return { success: false, error: "A clínica não atende aos domingos e segundas-feiras. Escolha outro dia." };
+    }
+
     const serviceSnap = await adminDb.collection("services").doc(serviceId).get();
     const service = serviceSnap.data();
     if (!serviceSnap.exists || !service || service.active === false) {

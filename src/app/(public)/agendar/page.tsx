@@ -167,8 +167,8 @@ function StepSelectDateTime() {
     const dates: string[] = [];
     let currentDate = new Date();
     while (dates.length < 4) {
-      // Dia 0 é Domingo. Pula os domingos.
-      if (currentDate.getDay() !== 0) { 
+      // Clinic is closed on Sunday (0) and Monday (1).
+      if (currentDate.getDay() !== 0 && currentDate.getDay() !== 1) { 
         // Formata para o banco (YYYY-MM-DD)
         const formatted = currentDate.toLocaleDateString('en-CA');
         dates.push(formatted);
