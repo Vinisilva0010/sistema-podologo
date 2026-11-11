@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { BrutalButton } from "@/components/ui/BrutalButton";
+import { AccountSettings } from "@/components/AccountSettings";
 import { Plus, Save, Loader2, Trash2 } from "lucide-react";
 
 export default function ConfigPage() {
@@ -151,6 +152,7 @@ export default function ConfigPage() {
           </div>
         )}
       </div>
+      <AccountSettings />
     </div>
   );
 }
