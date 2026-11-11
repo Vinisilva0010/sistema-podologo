@@ -175,7 +175,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
         onClick={handleWhatsAppClick}
         className="w-full bg-brutal-black text-white p-4 flex items-center justify-between hover:bg-pink-700 transition-colors cursor-pointer group/btn"
       >
-        <span className="font-black uppercase tracking-wider text-sm md:text-base">Saiba mas</span>
+        <span className="font-black uppercase tracking-wider text-sm md:text-base">Saiba mais</span>
         <MessageCircle className="w-6 h-6 transform group-hover/btn:scale-110 transition-transform text-yellow-400" />
       </button>
 

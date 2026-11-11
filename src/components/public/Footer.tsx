@@ -1,5 +1,5 @@
 // src/components/public/Footer.tsx
-import { MapPin, Phone, Clock, Instagram, Facebook, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram, ArrowRight } from "lucide-react";
 import { BrutalButton } from "../ui/BrutalButton";
 
 const WHATSAPP_NUMBER = "5511984099457";
@@ -54,9 +54,7 @@ export function Footer() {
     Consultar meu Agendamento
   </a>
   <div className="bg-white border-4 border-black px-6 py-3 shadow-[6px_6px_0px_0px_#ec4899] mb-8 -rotate-2">
-    <h3 className="text-2xl font-black uppercase tracking-widest text-black">
-      Podologia
-    </h3>
+    <h3 className="text-2xl font-black uppercase tracking-widest text-black">Lais Laurentino Podologia</h3>
   </div>
   <p className="text-gray-400 font-bold mb-8 max-w-sm">
     Tratamento humanizado e biossegurança de nível hospitalar. Devolvendo o conforto para os seus pés.
@@ -64,9 +62,6 @@ export function Footer() {
   <div className="flex gap-4">
     <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="bg-white text-black border-4 border-black p-3 hover:bg-yellow-400 hover:-translate-y-1 transition-all shadow-[4px_4px_0px_0px_#ec4899]">
       <Instagram className="w-6 h-6" strokeWidth={2.5} />
-    </a>
-    <a href="#" target="_blank" rel="noopener noreferrer" className="bg-white text-black border-4 border-black p-3 hover:bg-yellow-400 hover:-translate-y-1 transition-all shadow-[4px_4px_0px_0px_#ec4899]">
-      <Facebook className="w-6 h-6" strokeWidth={2.5} />
     </a>
   </div>
 </div>
@@ -80,8 +75,7 @@ export function Footer() {
               <li className="flex flex-col md:flex-row items-center md:items-start gap-3 group">
                 <MapPin className="w-6 h-6 text-pink-400 flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
                 <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline decoration-2 underline-offset-4 transition-colors">
-                  Av. Rio das pedras, 1211 - Sala 09<br />
-                   - Cidade, SP
+                  Av. Rio das Pedras, 1211 - Sala 09<br />Jardim Aricanduva, São Paulo - SP, 03452-100
                 </a>
               </li>
               <li className="flex flex-col md:flex-row items-center md:items-start gap-3">
@@ -129,7 +123,7 @@ export function Footer() {
           
           {/* A PORTA DOS FUNDOS NINJA: Camuflada no ano, sem cursor de pointer */}
           <p>
-            © <a href="/login" className="cursor-text outline-none">{new Date().getFullYear()}</a> Clínica de Podologia. Todos os direitos reservados.
+            © <a href="/login" className="cursor-text outline-none">{new Date().getFullYear()}</a> Lais Laurentino Podologia. Todos os direitos reservados.
           </p>
           
           <div className="flex items-center gap-2">

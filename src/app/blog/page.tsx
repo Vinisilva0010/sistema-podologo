@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Footer } from "@/components/public/Footer";
 
 export const metadata: Metadata = {
-  title: "Blog | Clínica de Podologia",
+  title: "Blog de podologia: cuidados com os pés",
   description: "Artigos, dicas e conteúdos sobre podologia, cuidados com os pés e bem-estar.",
 };
 

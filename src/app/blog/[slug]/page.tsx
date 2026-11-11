@@ -21,11 +21,11 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
 
   if (!post) {
-    return { title: "Post não encontrado | Clínica de Podologia" };
+    return { title: "Post não encontrado" };
   }
 
   return {
-    title: `${post.title} | Blog da Clínica`,
+    title: post.title,
     description: post.description,
     openGraph: {
       title: post.title,
@@ -63,7 +63,7 @@ export default async function BlogPost({
     datePublished: post.date,
     author: {
       "@type": "Organization",
-      name: "Clínica de Podologia",
+      name: "Lais Laurentino Podologia",
     },
     description: post.description,
   };
