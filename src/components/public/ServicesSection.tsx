@@ -10,6 +10,7 @@ const WHATSAPP_NUMBER = "5511984099457"; // Coloque o número dela aqui
 
 const services = [
   {
+    slug: "unha-encravada",
     title: "Unha Encravada",
     description: "Remoção de espículas com técnica indolor e curativo especializado. Alívio imediato na primeira sessão.",
     icon: Scissors,
@@ -17,6 +18,7 @@ const services = [
     image: "/pe1.png", // Substitua pelos PNGs reais depois
   },
   {
+    slug: "calos-e-rachaduras",
     title: "Calos e Rachaduras",
     description: "Desbaste técnico e hidratação profunda. Devolvemos a elasticidade e o aspecto saudável dos seus pés.",
     icon: Footprints,
@@ -25,6 +27,7 @@ const services = [
   },
   {
 
+    slug: "pe-diabetico",
     title: "Pé Diabético",
 
     description: "Avaliação preventiva, corte técnico e tratamento especializado com foco total em biossegurança.",
@@ -39,6 +42,7 @@ const services = [
 
   },
   {
+    slug: "micoses-e-fungos",
     title: "Infecções e Fungos",
     description: "Tratamento de micoses com limpeza profunda e acompanhamento contínuo até a cura completa.",
     icon: Sparkles,
@@ -151,6 +155,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
         <p className="text-base font-bold text-gray-700 leading-relaxed mb-4">
           {service.description}
         </p>
+        <a href={`/tratamentos/${service.slug}`} className="mt-auto inline-block self-start border-4 border-black bg-yellow-300 px-4 py-2 font-black uppercase text-black text-sm shadow-[4px_4px_0px_0px_#0f0f0f]">Ver detalhes do tratamento</a>
       </div>
 
       {/* A Imagem do Serviço incorporada na base do Card */}
@@ -175,7 +180,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
         onClick={handleWhatsAppClick}
         className="w-full bg-brutal-black text-white p-4 flex items-center justify-between hover:bg-pink-700 transition-colors cursor-pointer group/btn"
       >
-        <span className="font-black uppercase tracking-wider text-sm md:text-base">Saiba mais</span>
+        <span className="font-black uppercase tracking-wider text-sm md:text-base">Tirar dúvida no WhatsApp</span>
         <MessageCircle className="w-6 h-6 transform group-hover/btn:scale-110 transition-transform text-yellow-400" />
       </button>
 
